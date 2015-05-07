@@ -1,0 +1,21 @@
+body {
+  background: #EEE;
+}
+
+.registration {
+  width: 300px;
+  margin: 0 auto;
+  padding: 30px;
+  border: solid 1px #CCC;
+  margin-top: 50px;
+  background: white;
+}
+
+.registrations{
+  width: 700px;
+  margin: 0 auto;
+  padding: 30px;
+  border: solid 1px #CCC;
+  margin-top: 50px;
+  background: white;
+}
