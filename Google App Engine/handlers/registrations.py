@@ -1,6 +1,7 @@
 import webapp2
 from models import *
-from views import *
+from views import template
+
 
 class RegistrationsHandler(webapp2.RequestHandler):
 
@@ -8,13 +9,11 @@ class RegistrationsHandler(webapp2.RequestHandler):
         name = self.request.get('name')
         email = self.request.get('email')
         course = self.request.get('course')
-        r = Registration(name = name, email = email, course = course)
+        r = Registration(name=name, email=email, course=course)
         r.put()
-        template = JINJA_ENVIRONMENT.get_template('confirmation.html')
-        self.response.write(template.render())
+        self.response.write(template('confirmation.html'))
 
     def get(self):
         registrations = Registration.all()
-        template_values = {"registrations" : registrations}
-        template = JINJA_ENVIRONMENT.get_template('registrations.html')
-        self.response.write(template.render(template_values))
+        template_values = {"registrations": registrations}
+        self.response.write(template('registrations.html', template_values))
